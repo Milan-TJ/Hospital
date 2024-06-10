@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+
+    <!-- <link href="static/css/style.css" rel="stylesheet" /> -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <style>
+        .Doctor-view {
+            background-color: #005b96;
+            color: #fff;
+            width: 95%;
+            height: auto;
+            min-height: 34rem;
+            border: none;
+            border-radius: 20px;
+            margin: auto;
+            margin-top: 1rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: space-around;
+        }
+        .Doctor-view .item{
+            font-size: 1.5rem;
+        }
+        .Doctor-view section {
+            margin-bottom: 2rem;
+        }
+        .Doctor-view table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .Doctor-view th {
+            min-width: 90px;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .Doctor-view td {
+            min-width: 90px;
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .bi-eye,
+        .bi-pencil {
+            color: #fff;
+            font-size: 1.3rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <nav class="nav-bar">
+            <a class="nav-brand" href="{% url 'home' %}">
+                <img src="{% static 'assets/hospital.png' %}" alt="" class="img-brand">
+                <p class="brand-txt">Trust Care</p>
+            </a>
+            <ul class="nav-links  login">
+                <li class="nav-item">
+                    <button class="btn-book nav-link" href="#">Book An Appointment</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/AboutUs/">About Us</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="Doctor-view">
+            <h1>Dr. {{cm.first_name}} {{cm.last_name}}
+                <a href="{% url 'EditDoctor' cm.id %}" class="edit btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+                    </svg>
+                </a>
+            </h1>
+            <p class="item">ID : {{cm.id}}</p>
+            <p class="item">email : {{cm.email}}</p>
+            <p class="item">phone : {{cm.phone}}</p>
+            <p class="item">specialization : {{cm.specialization}}</p>
+            <p class="item">Date of birth : {{cm.date_of_birth}}</p>
+            <section display="{{displaychoice}}">
+                <table>
+                    <tr >
+                        <th style="text-align: center;font-size: 2rem;" colspan="6">Patients</th>
+                    </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>View</th>
+                    </tr>
+                    {%for i in cn%}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.first_name}} {{i.last_name}}</td>
+                        <td>{{i.email}}</td>
+                        <td><a href="{% url 'ViewDetails' i.id %}" class="btn btn-primary">View</a></td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Trust Care Medical Group . All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

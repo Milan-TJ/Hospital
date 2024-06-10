@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Default styles for all screen sizes */
+
+/* Small devices (phones) */
+@media only screen and (max-width: 600px) {
+
+    /* Styles for screens up to 600px wide */
+    html {
+        font-size: 50%;
+
+        .nav-bar {
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid #000;
+
+            .nav-brand {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .nav-links {
+                width: 100%;
+                list-style: none;
+                margin-top: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .brand-txt {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+/* Medium devices (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+
+    /* Styles for screens between 601px and 1024px wide */
+    html {
+        font-size: 70%;
+
+        .nav-bar {
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid #000;
+
+            .nav-brand {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            .nav-links {
+                width: 100%;
+                list-style: none;
+                margin-top: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .brand-txt {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+/* Large devices (desktops) */
+@media only screen and (min-width: 1025px) {
+
+    /* Styles for screens wider than 1024px */
+    html {
+        font-size: 100%;
+    }
+}
+
+body {
+    background-color: #CDF5FD !important;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main {
+    width: 100%;
+}
+
+.nav-bar {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    box-sizing: border-box;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: #89CFF3; */
+    border-bottom: 1px solid #000;
+}
+
+.nav-brand {
+    width: 14rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-brand {
+    width: 4rem;
+    height: 4rem;
+}
+
+.brand-txt {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.nav-links {
+    width: 45rem;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-book {
+    font-size: 1rem;
+    padding: 17px 26px;
+    border-radius: 1rem;
+    background-color: #CDF5FD;
+    transition: font-size .3s ease;
+}
+
+.btn-book:hover {
+    background-color: #89CFF3;
+    border-color: #fff;
+    color: #fff;
+    border-style: solid;
+}
+
+.nav-link {
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.nav-link:hover {
+    background-color: #89CFF3;
+    border-color: #fff;
+    color: #fff;
+    border-style: solid;
+}
+
+footer {
+    background-color: #005b96;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+
+.form-container {
+    background-color: #005b96;
+    color: #fff;
+    width: 40%;
+    height: 23rem;
+    border: none;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 2rem;
+}
+
+form {
+    width: 95%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form h1 {
+    margin-bottom: 1rem;
+}
+
+.form-container input {
+    width: 80%;
+    height: 2rem;
+    font-size: 1.1rem;
+    color: #000000;
+    margin: 0 10%;
+    padding-inline-start: 10px;
+    background-color: rgb(233, 233, 233);
+    align-items: center;
+}
+
+.form-container input::placeholder {
+    padding-inline-start: 10px;
+}
+
+.form-container input[type="submit"] {
+    width: 80%;
+    height: 2rem;
+    background-color: #005b96;
+    font-size: 1.5rem;
+    color: azure;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: azure;
+    color: #444;
+}
+
+/* form label{
+    width: 0%;
+    display: none;
+} */
+.form-container .valid {
+    text-align: left;
+    width: 80%;
+    padding-bottom: 1rem;
+    height: 1rem;
+    color: red;
+}
+
+.form-container-reg {
+    background-color: #005b96;
+    color: #fff;
+    width: 60%;
+    height: auto;
+    border: none;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 2rem;
+}
+
+.form-container-reg p:not(.signtxt) {
+    width: 100%;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container-reg .signtxt,
+h1 {
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.form-container-reg h1 {
+    font-size: 3rem;
+}
+
+.signtxt {
+    font-size: 1.25rem !important;
+}
+
+.sign a {
+    color: #fff;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.form-container-reg label {
+    text-align: end;
+    padding-inline-end: 1rem;
+    width: 20%;
+}
+
+.form-container-reg input,
+select {
+    width: 50%;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding-inline-start: .5rem;
+}
+
+.form-container-reg input[type="submit"] {
+    width: 50%;
+    height: 2rem;
+    margin: 2rem 0;
+    background-color: #005b96;
+    font-size: 1.5rem;
+    color: azure;
+}
+
+.form-container-reg input[type="submit"]:hover {
+    background-color: azure;
+    color: #444;
+}
+

@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <!-- <link href="static/css/style.css" rel="stylesheet" /> -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <nav class="nav-bar">
+            <a class="nav-brand" href="{% url 'home' %}">
+                <img src="{% static 'assets/hospital.png' %}" alt="" class="img-brand">
+                <p class="brand-txt">Trust Care</p>
+            </a>
+            <ul class="nav-links  login">
+                <li class="nav-item">
+                    <button class="btn-book nav-link" href="/AdminView/">Admin View</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/AboutUs/">About Us</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main">
+        </div>
+        <footer>
+            <p>&copy; 2024 Trust Care Medical Group . All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

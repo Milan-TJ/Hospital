@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+    <style>
+        .nav-links,
+        .about {
+            width: 30rem;
+        }
+
+        header {
+            background-color: #005b96;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        section {
+            margin-bottom: 2em;
+        }
+
+        h2 {
+            color: #005b96;
+        }
+
+        .team h2 {
+            color: #005b96;
+            width: calc(50% - 1.5em);
+            text-align: center;
+        }
+
+        .welcome,
+        .history,
+        .mission {
+            background-color: white;
+            padding: 1.5em;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .team {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5em;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 1em;
+            text-align: center;
+            width: calc(50% - 1.5em);
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <nav class="nav-bar">
+            <a class="nav-brand" href="{% url 'home' %}">
+                <img src="{% static 'assets/hospital.png' %}" alt="" class="img-brand">
+                <p class="brand-txt">Trust Care</p>
+            </a>
+            <ul class="nav-links about">
+                <li class="nav-item">
+                    <button class="btn-book nav-link" href="#">Book An Appointment</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Doctorlogin/">Doctor Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Patientlogin/">Patient Login</a>
+                </li>
+            </ul>
+        </nav>
+        <header>
+            <h1>About Us</h1>
+        </header>
+        <main>
+            <section class="welcome">
+                <h2>Welcome to Our Hospital</h2>
+                <p>At our hospital, we are committed to providing the best healthcare services to our community. Our
+                    dedicated team of professionals is here to ensure your health and well-being.</p>
+            </section>
+            <section class="history">
+                <h2>Our History</h2>
+                <p>Established in 1965, our hospital has been serving the community for over five decades. We have grown
+                    from a small clinic to a state-of-the-art healthcare facility.</p>
+            </section>
+            <section class="mission">
+                <h2>Our Mission</h2>
+                <p>Our mission is to provide compassionate, high-quality healthcare, to improve the well-being of the
+                    people we serve, and to promote health and wellness in our community.</p>
+            </section>
+            <section class="team">
+                <h2>Meet Our Team</h2>
+
+                {%for i in cm%}
+                <div class="team-member">
+                    <h3>{{i.first_name}} {{i.last_name}}</h3>
+                    <p>{{i.specialization}}</p>
+                </div>
+                {%endfor%}
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 Trust Care Medical Group . All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

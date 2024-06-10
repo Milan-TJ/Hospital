@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <!-- <link href="static/css/style.css" rel="stylesheet" /> -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <nav class="nav-bar">
+            <a class="nav-brand" href="{% url 'home' %}">
+                <img src="{% static 'assets/hospital.png' %}" alt="" class="img-brand">
+                <p class="brand-txt">Trust Care</p>
+            </a>
+            <ul class="nav-links  login">
+                <li class="nav-item">
+                    <button class="btn-book nav-link" href="#">Book An Appointment</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/AboutUs/">About Us</a>
+                </li>
+            </ul>
+        </nav>
+        <form method="POST" enctype="multipart/form-data" class="form-container-reg">
+            <h1>{{UserType}} Register</h1>
+            {%csrf_token%}
+            {{form1.as_p}}
+            {{form2.as_p}}
+            <input type="submit" value="Sign up">
+            <div class="sign">
+                <p class="signtxt">Already have an account? <a href="/{{UserType}}login/"> Sign In</a></p>
+            </div>
+        </form>
+        <footer>
+            <p>&copy; 2024 Trust Care Medical Group . All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

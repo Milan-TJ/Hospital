@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- <link href="static/css/style.css" rel="stylesheet" /> -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+    <style>
+        .nav-links,.login{
+            width: 30rem;
+        }
+        footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0%;
+        }
+        .sign{
+            width: 100%;
+            display:flex;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+        .sign a {
+            color: #fff;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="main">
+        <nav class="nav-bar">
+            <a class="nav-brand" href="{% url 'home' %}">
+                <img src="{% static 'assets/hospital.png' %}" alt="" class="img-brand">
+                <p class="brand-txt">Trust Care</p>
+            </a>
+            <ul class="nav-links  login">
+                <li class="nav-item">
+                    <button class="btn-book nav-link" href="#">Book An Appointment</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/AboutUs/">About Us</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- <div class="form-container">
+            {%csrf_token%}
+            {{form1.as_p}}
+            {{form2.as_p}}
+        </div> -->
+        <main class="form-container">
+            <form action="/{{UserType}}login/" method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+                <h1>{{UserType}} Login</h1>
+                <input type="text" placeholder="Email ID" name="email">
+                <p class="valid">{{valid1}}</p>
+                <input type="password" placeholder="Password" name="password">
+                <p class="valid">{{valid2}}</p>
+                <input type="submit" value="Sign In">
+                <div class="sign">
+                    <p class="signtxt">Don't have an account?<a href="/{{UserType}}Register/"> Sign up</a></p>
+                </div>
+            </form>
+        </main>
+        <footer>
+            <p>&copy; 2024 Trust Care Medical Group . All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
